@@ -1,4 +1,4 @@
-# UBotX - Telegram UserBot
+# UserXMax - Telegram UserBot
 
 ```
 #include <std/disclaimer.h>
@@ -18,11 +18,11 @@
 
 ## Disclaimer
 
-First of all you should know this bot is a major work in progress. It is a fork of [Paperplane Extended](https://github.com/AvinashReddy3108/PaperplaneExtended), If you choose to use this bot now, be prepared to pull changes frequently as I continue to fix broken english, pull or change things that don't make sense, or add new things.
+First of all you should know this bot is a major work in progress. It is a fork of [TG-UBotX](https://github.com/HitaloSama/TG-UBotX), If you choose to use this bot now, be prepared to pull changes frequently as I continue to fix broken english, pull or change things that don't make sense, or add new things.
 
 ## Heroku Deploy
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/HitaloSama/TG-UBotX)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/noobvishal/UserXMax)
 
 ## Credits
 

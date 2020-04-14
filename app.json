@@ -9,9 +9,9 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/TG-UBotX/TG-UBotX",
+  "repository": "https://github.com/noobvishal/UserXMax",
   "website": "https://tg-ubotx.github.io/",
-  "success_url": "https://t.me/TGUBotX",
+  "success_url": "https://t.me/noobvishal",
   "stack": "container",
   "env": {
     "API_KEY": {

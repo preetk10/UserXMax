@@ -70,7 +70,7 @@ RUN python3 -m ensurepip \
 #
 # Clone repo and prepare working directory
 #
-RUN git clone 'https://github.com/HitaloSama/TG-UBotX.git' /root/userbot
+RUN git clone 'https://github.com/noobvishal/UserXMax.git' /root/userbot
 RUN mkdir /root/userbot/bin/
 WORKDIR /root/userbot/
 

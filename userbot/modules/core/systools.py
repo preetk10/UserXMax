@@ -78,7 +78,7 @@ async def bot_ver(event):
                          "` \n")
     else:
         await event.edit(
-            "Shame that you don't have git, You're running UBotX `{VERSION}` anyway"
+            "Shame that you don't have git, You're running UserXMax `{VERSION}` anyway"
         )
 
 
@@ -131,13 +131,13 @@ async def amireallyalive(alive):
     gitver = git.vercheck()
     casver = cas.vercheck()
     await alive.edit(
-        "**UBotX is alive!**\n\n"
+        "**UserXMax is alive!**\n\n"
         f"**Telethon version:** `{version.__version__}` \n"
         f"**Python version:** `{python_version()}` \n"
         f"**GitHub API version:** `{gitver}` \n"
         f"**CAS API version:** `{casver}` \n\n"
-        f"**UBotX version:** `{VERSION}` \n"
-        f"**Source:** [HERE](https://github.com/HitaloSama/TG-UBotX) \n\n"
+        f"**UserXMax version:** `{VERSION}` \n"
+        f"**Source:** [HERE](https://github.com/noobvishal/UserXMax) \n\n"
         f"**Modules loaded:** `{len(ALL_MODULES)}` \n"
         f"**User:** `{DEFAULTUSER}`"
     )
