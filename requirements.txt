@@ -43,4 +43,3 @@ tgcrypto
 wikipedia>=1.4.0
 selenium
 urbandict
-neofetch
