@@ -13,7 +13,6 @@ from os import remove
 from telethon import version
 
 import userbot.utils.git_api as git
-import userbot.utils.cas_api as cas
 
 from ..help import add_help_item
 from userbot import ALIVE_NAME, VERSION
@@ -129,7 +128,6 @@ async def pipcheck(pip):
 async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
     gitver = git.vercheck()
-    casver = cas.vercheck()
     await alive.edit(
         "**UserXMax is alive!**\n\n"
         f"**Telethon version:** `{version.__version__}` \n"
