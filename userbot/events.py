@@ -121,7 +121,7 @@ def register(**args):
 
                     ftext += result
 
-                    file = open("ubotx_error.log", "w+")
+                    file = open("UserXMax_Error.Log", "w+")
                     file.write(ftext)
                     file.close()
 
@@ -131,9 +131,9 @@ def register(**args):
                                             )
 
                     await check.client.send_file(send_to,
-                                                 "ubotx_error.log",
+                                                 "UserXMax_Error.Log",
                                                  caption=text)
-                    remove("ubotx_error.log")
+                    remove("UserXMax_Error.Log")
             else:
                 pass
 

@@ -27,9 +27,9 @@ except PhoneNumberInvalidError:
 for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
-LOGS.info("You are running Telegram UserBot X")
+LOGS.info("You are running Telegram UserXMax")
 
-LOGS.info("UBotX is alive! Test it by typing .alive on any chat.")
+LOGS.info("UserXMax is alive! Test it by typing .alive on any chat.")
 
 if len(argv) not in (1, 3, 4):
     bot.disconnect()

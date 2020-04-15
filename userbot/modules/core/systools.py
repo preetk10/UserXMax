@@ -135,7 +135,6 @@ async def amireallyalive(alive):
         f"**Telethon version:** `{version.__version__}` \n"
         f"**Python version:** `{python_version()}` \n"
         f"**GitHub API version:** `{gitver}` \n"
-        f"**CAS API version:** `{casver}` \n\n"
         f"**UserXMax version:** `{VERSION}` \n"
         f"**Source:** [HERE](https://github.com/noobvishal/UserXMax) \n\n"
         f"**Modules loaded:** `{len(ALL_MODULES)}` \n"
