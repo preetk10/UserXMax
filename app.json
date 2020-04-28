@@ -103,13 +103,37 @@
       "description": "When a new person joins, the old welcome message is deleted.",
       "value": "True"
     },
-    "G_DRIVE_CLIENT_ID": {
-      "description": "Enter Your Client ID for Google Drive.",
+    "LASTFM_API": {
+      "description": "API Key for Last.FM module. [Get one from - https://www.last.fm/api/account/create]",
+      "required": false
+    },
+    "LASTFM_SECRET": {
+      "description": "SECRET Key for Last.FM module. [Get one from - https://www.last.fm/api/account/create]",
+      "required": false
+    },
+    "LASTFM_USERNAME": {
+      "description": "Last.FM Username",
+      "required": false
+    },
+    "LASTFM_PASSWORD": {
+      "description": "Last.FM Password",
+      "required": false
+    },
+    "BIO_PREFIX": {
+      "description": "Prefix for Last.FM Module Bio.",
       "required": false
     },
     "DEFAULT_BIO": {
       "description": "Default profile bio.",
-      "value": "[PM = Report Spam] Beware of my userbot.",
+      "value": "",
+      "required": false
+    },
+	"GENIUS_ACCESS_TOKEN": {
+      "description": "Client Access Token from https://genius.com/api-clients.",
+      "required": false
+    },
+    "G_DRIVE_CLIENT_ID": {
+      "description": "Enter Your Client ID for Google Drive.",
       "required": false
     },
     "ALIVE_NAME": {
