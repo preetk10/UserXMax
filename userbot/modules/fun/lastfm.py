@@ -12,6 +12,7 @@ from re import sub
 from urllib import parse
 from os import environ
 from sys import setrecursionlimit
+from ..help import add_help_item
 
 from telethon.errors import AboutTooLongError
 from telethon.tl.functions.account import UpdateProfileRequest
