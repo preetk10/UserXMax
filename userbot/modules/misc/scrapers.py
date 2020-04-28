@@ -10,6 +10,7 @@ import time
 import asyncio
 import shutil
 import re
+import requests
 
 from bs4 import BeautifulSoup
 from html import unescape
@@ -38,7 +39,7 @@ from youtube_dl.utils import (DownloadError, ContentTooShortError,
 
 from ..help import add_help_item
 from userbot import (BOTLOG, BOTLOG_CHATID, YOUTUBE_API_KEY,
-                     CHROME_DRIVER, GOOGLE_CHROME_BIN)
+                     CHROME_DRIVER, GOOGLE_CHROME_BIN, OCR_SPACE_API_KEY, TEMP_DOWNLOAD_DIRECTORY)
 from userbot.events import register
 from telethon.tl.types import DocumentAttributeAudio
 from userbot.modules.misc.upload_download import progress
@@ -494,6 +495,57 @@ async def yt_search(video_q):
     await video_q.edit(reply_text)
 
 
+async def ocr_space_file(filename,
+                         overlay=False,
+                         api_key=OCR_SPACE_API_KEY,
+                         language='eng'):
+    """ OCR.space API request with local file.
+        Python3.5 - not tested on 2.7
+    :param filename: Your file path & name.
+    :param overlay: Is OCR.space overlay required in your response.
+                    Defaults to False.
+    :param api_key: OCR.space API key.
+                    Defaults to 'helloworld'.
+    :param language: Language code to be used in OCR.
+                    List of available language codes can be found on https://ocr.space/OCRAPI
+                    Defaults to 'en'.
+    :return: Result in JSON format.
+    """
+
+    payload = {
+        'isOverlayRequired': overlay,
+        'apikey': api_key,
+        'language': language,
+    }
+    with open(filename, 'rb') as f:
+        r = requests.post(
+            'https://api.ocr.space/parse/image',
+            files={filename: f},
+            data=payload,
+        )
+    return r.json()
+
+
+@register(pattern=r".ocr (.*)", outgoing=True)
+async def ocr(event):
+    await event.edit("`Reading...`")
+    if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
+    lang_code = event.pattern_match.group(1)
+    downloaded_file_name = await bot.download_media(
+        await event.get_reply_message(), TEMP_DOWNLOAD_DIRECTORY)
+    test_file = await ocr_space_file(filename=downloaded_file_name,
+                                     language=lang_code)
+    try:
+        ParsedText = test_file["ParsedResults"][0]["ParsedText"]
+    except BaseException:
+        await event.edit("`Couldn't read it.`\n`I guess I need new glasses.`")
+    else:
+        await event.edit(f"`Here's what I could read from it:`\n\n{ParsedText}"
+                         )
+    os.remove(downloaded_file_name)
+
+
 async def youtube_search(query,
                          order="relevance",
                          token=None,
@@ -695,6 +747,9 @@ add_help_item(
     `.trt <text> [or reply]`
     **Usage:** Translates text to the language which is set.
     Use `.lang trt <language code>` to set language for trt. (Default is English)
+
+    `.ocr <language Code>`
+    Usage: Reply to an image or sticker to extract text from it..
 
     `.yt <text>`
     Usage: Does a YouTube search.

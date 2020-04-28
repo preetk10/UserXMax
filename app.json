@@ -91,6 +91,10 @@
       "description": "API Key for .rbg command. Get from https://www.remove.bg/api",
       "required": false
     },
+    "OCR_SPACE_API_KEY": {
+      "description": "API Key for .ocr command. Get from https://ocr.space/ocrapi",
+      "required": false
+    },
     "TMP_DOWNLOAD_DIRECTORY": {
       "description": "Download location for many modules (GDrive, .download etc..)",
       "value": "./downloads/"
