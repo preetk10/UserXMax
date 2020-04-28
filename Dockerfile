@@ -1,45 +1,39 @@
 # We're using Alpine Edge
-FROM alpine:edge
+FROM python:3.7-alpine
 
-# We have to uncomment Community repo for some packages
-RUN sed -e 's;^#http\(.*\)/edge/community;http\1/edge/community;g' -i /etc/apk/repositories
-
-# install ca-certificates so that HTTPS works consistently
-# other runtime dependencies for Python are installed later
-RUN apk add --no-cache ca-certificates
-RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories
 
 # Installing Packages
-RUN apk add --no-cache=true --update \
-    coreutils \
+RUN apk add --no-cache --update \
     bash \
     build-base \
     bzip2-dev \
     curl \
-    figlet \
+    coreutils \
     gcc \
     g++ \
     git \
-    sudo \
-    aria2 \
     util-linux \
     libevent \
+    libjpeg-turbo-dev \
+    figlet \
     jpeg-dev \
+    jpeg \
+    libc-dev \
+    aria2 \
     libffi-dev \
     libpq \
     libwebp-dev \
-    libxml2 \
     libxml2-dev \
     libxslt-dev \
     linux-headers \
-    musl \
-    neofetch \
+    musl-dev \
     openssl-dev \
     postgresql \
     postgresql-client \
     postgresql-dev \
     openssl \
     pv \
+    neofetch \
     jq \
     wget \
     python \
@@ -47,25 +41,12 @@ RUN apk add --no-cache=true --update \
     python3 \
     python3-dev \
     readline-dev \
-    sqlite \
     ffmpeg \
     sqlite-dev \
     sudo \
-    chromium \
-    chromium-chromedriver \
     zlib-dev \
-    jpeg \
-    zip \
-    megatools \
-    nodejs \
-    freetype-dev
-
-RUN python3 -m ensurepip \
-    && pip3 install --upgrade pip setuptools \
-    && rm -r /usr/lib/python*/ensurepip && \
-    if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
-    if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
-    rm -r /root/.cache
+    zip
+    
 
 #
 # Clone repo and prepare working directory
@@ -82,5 +63,6 @@ COPY ./sample_config.env ./userbot.session* ./config.env* /root/userbot/
 #
 # Install requirements
 #
-RUN pip3 install -r requirements.txt --upgrade
+RUN pip install -r requirements.txt
+RUN pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U
 CMD ["python3","-m","userbot"]
