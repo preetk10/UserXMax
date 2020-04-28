@@ -36,12 +36,10 @@
     },
     "HEROKU_APIKEY": {
       "description": "Your Heroku API key, get it from 'https://dashboard.heroku.com/account'",
-      "value": ""
       "required": true
     },
     "HEROKU_APPNAME": {
       "description": "Add the Heroku app name here. It helps with userbot updates.",
-      "value": ""
       "required": true
     },
     "COUNTRY": {

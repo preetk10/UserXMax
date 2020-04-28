@@ -274,7 +274,7 @@ async def lyrics(lyric):
         
 add_help_item(
     "lastfm",
-    "fun",
+    "Fun",
     "Userbot module containing various scrapers.",
     """
     `.lastfm`
