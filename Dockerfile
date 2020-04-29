@@ -1,6 +1,8 @@
 # We're using Alpine Edge
 FROM python:3.7-alpine
 
+# install ca-certificates so that HTTPS works consistently
+RUN apk add --no-cache ca-certificates
 
 # Installing Packages
 RUN apk add --no-cache --update \
