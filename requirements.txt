@@ -44,3 +44,4 @@ wikipedia>=1.4.0
 selenium
 urbandict
 git+https://github.com/johnwmillr/LyricsGenius.git
+covid
