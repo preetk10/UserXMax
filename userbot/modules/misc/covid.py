@@ -27,7 +27,7 @@ async def corona(event):
 
 add_help_item(
     "covid",
-    "misc",
+    "Misc",
     "Get an information about data covid-19 in your country.",
     """
 .covid [Country Name]

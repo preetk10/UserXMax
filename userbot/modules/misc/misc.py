@@ -18,23 +18,14 @@ from userbot.events import register
 
 @register(outgoing=True, pattern="^.creator$")
 async def creator(e):
-    await e.edit("Here's my God: [Hitalo](https://t.me/HitaloSama)")
+    await e.edit("Here's my God: [noobvishal](https://github.com/noobvishal)")
 
 
 @register(outgoing=True, pattern="^\.repo$")
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await wannasee.edit(
-        f"Click [here](https://github.com/TG-UBotX/TG-UBotX) to open my userbot's repository.")
-
-
-@register(outgoing=True, pattern="^.uwiki$")
-async def reedme(e):
-    await e.edit(
-        "**Our wiki and other useful links::**\n"
-        "\n[TG-UBotX - Wiki](https://tg-ubotx.github.io/#/)"
-        "\n[Setup Guide - GDive](https://telegra.ph/How-To-Setup-GDrive-11-02)"
-        "\n[News Channel](https://t.me/TGUBotX)")
+        f"Click [here](https://github.com/noobvishal/UserXMax) to open my userbot's repository.")
 
 
 @register(outgoing=True, pattern="^\.random")
@@ -148,9 +139,6 @@ add_help_item(
 
     `.restart`
     **Usage:** Restarts the bot!
-
-    `.uwiki`
-    **Usage:** Provides the UBotX wiki
 
     `.creator`
     **Usage:** Know who created this awesome userbot!
