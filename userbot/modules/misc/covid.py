@@ -26,7 +26,7 @@ async def corona(event):
 
 
 add_help_item(
-        "covid": 
+        "covid"
         "Misc",
     "Userbot module for getting the current stats of COVID-19 Cases.",
     """
