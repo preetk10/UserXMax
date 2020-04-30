@@ -1,5 +1,5 @@
 # We're using Alpine Edge
-FROM python:3.7-alpine
+FROM python:3.8.2-alpine
 
 # install ca-certificates so that HTTPS works consistently
 RUN apk add --no-cache ca-certificates
@@ -65,5 +65,5 @@ COPY ./sample_config.env ./userbot.session* ./config.env* /root/userbot/
 #
 # Install requirements
 #
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 CMD ["python3","-m","userbot"]
