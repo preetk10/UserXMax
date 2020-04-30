@@ -10,6 +10,7 @@ import os
 import time
 import httplib2
 import subprocess
+import magic
 
 from pySmartDL import SmartDL
 from telethon import events
@@ -251,10 +252,10 @@ async def show_current_gdrove_folder(event):
 
 # Get mime type and name of given file
 def file_ops(file_path):
-    mime_type = guess_type(file_path)[0]
+    mime = magic.Magic(mime=True)
+    mime_type = mime.from_file(file_path)
     mime_type = mime_type if mime_type else "text/plain"
-    file_name = file_path.split("/")[-1]
-    return file_name, mime_type
+    return mime_type
 
 
 async def create_token_file(token_file, event):
