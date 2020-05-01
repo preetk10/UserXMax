@@ -8,6 +8,9 @@ RUN apk add --no-cache ca-certificates
 RUN apk add --no-cache --update \
     bash \
     build-base \
+    python3 \
+    python3-dev \
+    py3-pip \
     bzip2-dev \
     curl \
     coreutils \
@@ -38,11 +41,6 @@ RUN apk add --no-cache --update \
     neofetch \
     jq \
     wget \
-    python \
-    python-dev \
-    python3 \
-    python3-dev \
-    py3-pip \
     readline-dev \
     ffmpeg \
     sqlite-dev \
