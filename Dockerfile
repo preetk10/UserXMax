@@ -42,7 +42,7 @@ RUN apk add --no-cache --update \
     python-dev \
     python3 \
     python3-dev \
-	py3-pip \
+    py3-pip \
     readline-dev \
     ffmpeg \
     sqlite-dev \
