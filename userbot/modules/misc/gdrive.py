@@ -254,6 +254,7 @@ def file_ops(file_path):
     mime = magic.Magic(mime=True)
     mime_type = mime.from_file(file_path)
     mime_type = mime_type if mime_type else "text/plain"
+    file_name = file_path.split("/")[-1]
     return file_name, mime_type
 
 
