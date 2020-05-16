@@ -8,6 +8,8 @@ RUN apk add --no-cache ca-certificates
 RUN apk add --no-cache --update \
     bash \
     build-base \
+    python2 \
+    python2-dev \
     python3 \
     python3-dev \
     py3-pip \
