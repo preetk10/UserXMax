@@ -2,11 +2,8 @@ import os
 import shutil
 
 import deezloader
-
-from userbot import bot
-from ..help import add_help_item
-from userbot import LOGS
-from userbot.events import register
+import userge
+from userge import userge, Message
 
 ARL_TOKEN = os.environ.get("ARL_TOKEN", None)
 PATH = 'deezdown_temp/'
@@ -16,8 +13,23 @@ ARL_HELP = """**Oops, Time to Help Yourself**
 After getting Arl token Config `ARL_TOKEN` var in heroku"""
 
 
-@register(outgoing=True, pattern=r"^\.deezload(?: |$)(.*)")
-async def deezerloader(deezload):
+@userge.on_cmd("deezload", about={
+    'header': "DeezLoader for Userge",
+    'description': "Download Songs/Albums/Playlists via "
+                   "Sopitfy or Deezer Links. "
+                   "\n**NOTE:** Music Quality is optional",
+    'flags': {'-sdl': "Download via Spotify Link",
+              '-ddl': "Download via Deezers Link",
+              '-dsong': "Download a Song by passing Artist Name and Song Name",
+              '-zip': "Get a zip archive for Albums/Playlist Download"},
+    'options': "Available Sound Quality: `FLAC` | `MP3_320` | `MP3_256` | `MP3_128`",
+    'usage': "{tr}deezload [flag] [link | quality (default MP3_320)]",
+    'examples': "{tr}deezload -ddl https://www.deezer.com/track/142750222 \n"
+                "{tr}deezload -ddl https://www.deezer.com/track/3824710 FLAC \n"
+                "{tr}deezload -ddl https://www.deezer.com/album/1240787 FLAC \n"
+                "{tr}deezload -ddl -zip https://www.deezer.com/album/1240787 \n"
+                "{tr}deezload -dsong Ed Sheeran - Shape of You"})
+async def deezload(message: Message):
     if not os.path.exists(PATH):
         os.makedirs(PATH)
     if not message.flags:
