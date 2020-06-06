@@ -3,7 +3,7 @@ import shutil
 
 import deezloader
 
-from userbot import userbot, Message
+from userbot import bot
 from ..help import add_help_item
 from userbot import LOGS
 from userbot.events import register
