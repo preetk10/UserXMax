@@ -3,7 +3,7 @@ import shutil
 
 import deezloader
 
-from userge import userge, Message
+from userbot import userbot, Message
 
 ARL_TOKEN = os.environ.get("ARL_TOKEN", None)
 PATH = 'deezdown_temp/'
