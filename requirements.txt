@@ -47,5 +47,5 @@ git+https://github.com/johnwmillr/LyricsGenius.git
 covid
 python-magic
 deezloader
-git+https://github.com/UsergeTeam/Userge.git
+git+https://github.com/UsergeTeam/U
 userge
