@@ -17,7 +17,7 @@ After getting Arl token Config `ARL_TOKEN` var in heroku"""
 
 
 @register(outgoing=True, pattern=r"^\.deezload(?: |$)(.*)")
-async def deezload(message: Message):
+async def deezerloader(deezload):
     if not os.path.exists(PATH):
         os.makedirs(PATH)
     if not message.flags:
