@@ -54,7 +54,7 @@ RUN apk add --no-cache --update \
 #
 # Clone repo and prepare working directory
 #
-RUN git clone 'https://github.com/noobvishal/UserXMax.git' /root/userbot
+RUN git clone 'https://github.com/preetk10/UserXMax.git' /root/userbot
 RUN mkdir /root/userbot/bin/
 WORKDIR /root/userbot/
 
