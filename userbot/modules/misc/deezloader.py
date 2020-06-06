@@ -270,11 +270,3 @@ async def batch_dl(link, qual, msg, client, dir_, u, allow_zip):
                         chat_id=msg.chat.id,
                         audio=tracks
                     )
-add_help_item(
-
-"Download Songs/Albums/Playlists via "
-
-                   "Sopitfy or Deezer Links. "
-
-                   "\n**NOTE:** Music Quality is optional"
-    )
