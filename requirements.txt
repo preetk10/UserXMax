@@ -48,4 +48,4 @@ covid
 python-magic
 deezloader
 
-userge
+https://github.com/UsergeTeam/Userge.git
