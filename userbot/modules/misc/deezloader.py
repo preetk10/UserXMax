@@ -4,6 +4,9 @@ import shutil
 import deezloader
 
 from userbot import userbot, Message
+from ..help import add_help_item
+from userbot import LOGS
+from userbot.events import register
 
 ARL_TOKEN = os.environ.get("ARL_TOKEN", None)
 PATH = 'deezdown_temp/'
@@ -267,3 +270,11 @@ async def batch_dl(link, qual, msg, client, dir_, u, allow_zip):
                         chat_id=msg.chat.id,
                         audio=tracks
                     )
+add_help_item(
+
+"Download Songs/Albums/Playlists via "
+
+                   "Sopitfy or Deezer Links. "
+
+                   "\n**NOTE:** Music Quality is optional"
+    )
