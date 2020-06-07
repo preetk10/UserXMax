@@ -20,10 +20,7 @@ After getting Arl token Config `ARL_TOKEN` var in heroku"""
 async def deezerloader(deezload):
     if not os.path.exists(PATH):
         os.makedirs(PATH)
-    if not message.flags:
-        await message.edit(
-            "Check your E-Mail📧 I've sent an invitation to read help for DeezLoader :)")
-        return
+    
     await message.edit("Trying to Login 🥴")
     if ARL_TOKEN is None:
         await message.edit(ARL_HELP, disable_web_page_preview=True)
@@ -34,17 +31,8 @@ async def deezerloader(deezload):
         await message.edit(er)
         return
 
-    flags = list(message.flags)
-    if '-zip' not in flags:
-        to_zip = False
-    else:
-        to_zip = True
-    d_quality = "MP3_320"
-    if not message.filtered_input_str:
-        await message.edit("Bruh, Now I Think how far should we go. Plz Terminate my Session 🥺")
-        return
+
     input_ = message.filtered_input_str
-    if '-dsong' not in flags:
         try:
             input_link, quality = input_.split()
         except ValueError:
@@ -57,7 +45,7 @@ async def deezerloader(deezload):
         if '.com' not in input_link:
             await message.edit("Invalid Link")
             return
-    elif '-dsong' in flags:
+@register(outgoing=True, pattern=r"^\.dsong(?: |$)(.*)")
         try:
             artist, song, quality = input_.split('-')
         except ValueError:
@@ -68,18 +56,18 @@ async def deezerloader(deezload):
                 await message.edit("WeW, Use that thing which is present on top floor of ur body 🌚")
                 return
 
-    if '-sdl' in flags:
+@register(outgoing=True, pattern=r"^\.sdl(?: |$)(.*)")
         if 'track/' in input_link:
             await proper_trackdl(input_link, quality, message, loader, PATH, userge)
         elif 'album/' or 'playlist/' in input_link:
             await batch_dl(input_link, quality, message, loader, PATH, userge, to_zip)
-    elif '-ddl' in flags:
+ @register(outgoing=True, pattern=r"^\.ddl(?: |$)(.*)")
         if 'track/' in input_link:
             await proper_trackdl(input_link, quality, message, loader, PATH, userge)
         elif 'album/' or 'playlist/' in input_link:
             await batch_dl(input_link, quality, message, loader, PATH, userge, to_zip)
 
-    if '-dsong' in flags:
+    @register(outgoing=True, pattern=r"^\.deezload(?: |$)(.*)")
         await message.edit("Searching for Song 🔍")
         try:
             track = loader.download_name(
